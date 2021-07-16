@@ -1,0 +1,66 @@
+<form (submit)="addNewProduct(addProductForm)" #addProductForm="ngForm">
+  <div class="Form-row">
+    <div class="col-md-6 mb-3">
+      <label for="validationServer01" class="form-label">Product Name</label>
+      <input type="text" class="form-control"  required name="product_name" ngmodel>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="validationServer02" class="form-label">Category ID</label>
+      <input type="text" class="form-control " required name="product_category"
+        ngmodel>
+    </div>
+  </div>
+  <div class="Form-row">
+    <div class="col-md-6 mb-3">
+      <label for="validationServer03" class="form-label">Description</label>
+      <input type="text" class="form-control "  required
+        name="product_description" ngmodel>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="validationServer04" class="form-label">Rating</label>
+      <select class="form-control "  required name="product_rating" ngmodel>
+        <option selected value="">Choose</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </div>
+  </div>
+  <div class="Form-row">
+    <div class="col-md-6 mb-3">
+      <label for="validationServer05" class="form-label">Product Price</label>
+      <input type="text" class="form-control "  required name="product_price"
+        ngmodel>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="validationServer06" class="form-label">Is Available</label>
+      <select class="form-control " required name="product_isAvailable" ngmodel>
+        <option selected value="">Choose..</option>
+        <option value="1">True</option>
+        <option value="0">False</option>
+      </select>
+    </div>
+  </div>
+  <div class="Form-row">
+    <div class="col-md-6 mb-3">
+      <label for="validationServer07" class="form-label">Product Color</label>
+      <input type="text" class="form-control" required name="product_color" ngmodel>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="validationServer08" class="form-label">Review</label>
+      <select class="form-control " required name="product_review" ngmodel>
+        <option selected value="">Choose..</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-row">
+    <button class="from-button">Submit Form</button>
+  </div>
+</form>

@@ -1,0 +1,144 @@
+CRUD 1
+
+1. Check versions
+node -v
+2. npm -v
+3. Install angular, If angular already install then skip this step
+    -npm install -g @angular/cli
+
+4. Create new application
+    -ng new <application_Name>
+
+5. navigate inside application folder
+    -cd <application_Name>
+
+6. Build application
+    -ng serve
+
+7. Run the below link in the browser. 4200 is the defualt port
+    -http://localhost:4200
+
+8. Creating Mock Data setup for this application
+Cloud hosted APIs and Mock endpoints.
+we are going to use JSON server, which is free server
+Default port for JSON server is 3000, but we can change the port number
+
+9. install JSON server
+    npm i --save json-server  - to install locally
+    npm i -g json-server  - to install globally
+
+10. Create a mockdata folder, where we can copy all our json and mockdata files
+Best practice to create data folder under Assets.
+
+11. Get the dummy data from below link
+    https://github.com/typicode/json-server
+
+12. get the dummy JSON data from log and save it in new file db.json under mockdata folder.
+
+13. Run the json server
+    a. navigate to the mockdata folder then run the below command
+    json-server --watch .\db.json
+
+14. check the json server on default port 3000
+    http://localhost:3000
+
+15. Install Bootstrap framwork 4
+    -npm install --save bootstrap jquery popper
+
+    it will install packages, bootstrap , Jquery, popper
+    It will update package.json , dependencies
+
+16. IMPORTANT STEP: - Must not forget
+    go to angular.json file and update the style and scripts path of bootstrap and Jquery 
+   "styles": [
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
+          },
+17. Whenever we make changes to angular.json we must restart the application.
+    ng serve
+
+18. Feature Modules or Modules
+Module descriptive points
+    - Its a great way to group related functionality, which is easy to develop, maintain and reuse
+    - Easy to maintain and easy to use
+    - Allow us to implement lazy loading
+    - helps in securing protected pages 
+Two ways to implementing and using Modules
+    1. Using Modules
+    2. Using Modules with lazy loading
+
+19. Generate Modules
+    ng generate module <Module_Name>
+    ng g m <Module_Name>
+
+20. we will create two Modules, orders and products
+    - run ng g m orders
+    - navigate inside orders, 
+    - run cd ./src/app/orders
+
+21. create component list-orders inside  orders Modules
+    - ng g c list-orders
+
+22. To use orders module we need to import it into app module
+    - go to app.component.ts 
+    - add import { OrdersModule } from './orders/orders.module';
+    - add OrdersModule to the ngmodule imports array
+
+23. We will show the list-orders component inside the app component
+    - take selector name and paste it in app component
+        <h3>List order</h3>
+        <app-list-orders></app-list-orders>
+        <router-outlet></router-outlet>
+
+    - export ListOrdersComponent inside OrdersModule
+        @NgModule({
+        declarations: [ListOrdersComponent],
+        imports: [CommonModule],
+        exports: [ListOrdersComponent],
+        })
+
+24. run the application 
+    -ng serve
+
+25. Generate module with lazy loading
+    - lazy loading loads the module when it is requested. otherwise all the modules load at once which will take performance hit.
+    - ng g m products --route products --app.module
+
+26. Generating component for our products feature module
+    - generate related components inside one folder
+
+    
+27. Create UI for the component
+
+28. Create routing for the component
+
+29. Services
+    - ng generate service <service_name>
+    - import service in app.module, in 2 places
+    - sample Code 
+    import { HttpClient } from '@angular/common/http';
+     constructor(private httpClient: HttpClient) {}
+
+  createproduct(productBody) {
+    const productUrl = 'http://localhost:3000/products';
+    return this.httpClient.post(productUrl, productBody);
+  }
+
+30. Create interface or model 
+    - ng generate interface products
+    - create interface Product and declare all fields
+    Sample code
+        export interface Product {
+        productId: string;
+        categoryId: number;
+        productName: string;
+        }
+
+
+
+
